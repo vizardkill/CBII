@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome-5.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/hover-min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body style="background-image: url('img/web/Index/bg_poli.jpg'); background-repeat: no-repeat; background-position: center; background-size: auto">
+
+    <header>
+        <!--Modal de Registro de Usuario-->
+        <div class="modal fade" id="Mod_Reg_Usuario" tabindex="-1" role="dialog" aria-labelledby="Mod_Reg_Usuario"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content rounded ">
+                    <form id="Form_Registro_Usuario" name="Form_Registro_Usuario" method="POST"
+                        action="Registro?Peticion=Registro_Usuario">
+                        <!--Header-->
+                        <div class="modal-header bg-dark d-block">
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="text-center text-white"><strong>Formulario de Registro</strong></h4>
+                        </div>
+                        <!--/Header-->
+                        <!--Body-->
+                        <div class="modal-body mx-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col justify-content-center align-items-center">
+                                        <div id="msg_SucessRegistro_usuario" class="alert alert-success d-none"
+                                            role="alert">
+                                            <h6 class="h6 text-center">Usuario registrado con ex&#237to</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-4">
+                                        <div class="md-form">
+                                            <i class="fa fa-user-circle prefix grey-text"></i>
+                                            <input type="text" id="NOMBRE_USER" name="NOMBRE_USER"
+                                                class="form-control validate" aria-describedby="NOMBRE_USER">
+                                            <label data-success="" for="NOMBRE_USER">Nombres</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <div class="md-form">
+                                            <input type="text" id="APELLIDOS_USER" name="APELLIDOS_USER"
+                                                class="form-control validate" aria-describedby="APELLIDOS_USER">
+                                            <label data-success="" for="APELLIDOS_USER">Apellidos</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <div class="md-form">
+                                            <i class="fas fa-address-card prefix grey-text"></i>
+                                            <input type="text" id="DOC_USER" name="DOC_USER"
+                                                class="form-control validate" aria-describedby="DOC_USER">
+                                            <label data-success="" for="DOC_USER">Documento</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-4">
+                                        <div class="md-form">
+                                            <i class="fas fa-envelope prefix grey-text"></i>
+                                            <input type="email" id="CORREO_USER" name="CORREO_USER"
+                                                class="form-control validate" aria-describedby="CORREO_USER">
+                                            <label data-success="" for="CORREO_USER">Correo Electron&#237co</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <div class="md-form">
+                                            <i class="fa fa-user prefix grey-text"></i>
+                                            <input type="text" id="R_NICK_USER" name="R_NICK_USER"
+                                                class="form-control validate" aria-describedby="R_NICK_USER">
+                                            <label data-success="" for="R_NICK_USER">Usuario</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <div class="md-form">
+                                            <i class="fas fa-mobile-alt prefix grey-text"></i>
+                                            <input type="text" id="R_CELULAR_USER" name="R_CELULAR_USER"
+                                                class="form-control validate" aria-describedby="R_CELULAR_USER">
+                                            <label data-success="" for="R_CELULAR_USER">Celular</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="md-form">
+                                            <i class="fa fa-lock prefix grey-text"></i>
+                                            <input type="password" id="R_PASSWORD_USER" name="R_PASSWORD_USER"
+                                                class="form-control validate">
+                                            <label data-success="" for="R_PASSWORD_USER">Contrase&#241a</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="md-form">
+                                            <i class="fa fa-lock prefix grey-text"></i>
+                                            <input type="password" id="pwd" name="pwd" class="form-control validate">
+                                            <label data-success="" for="pwd">Confirmar Contrase&#241a</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Body-->
+                        <!--Footer-->
+                        <div class="modal-footer">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col d-flex flex-center mx-auto">
+                                        <button id="btn_registro_usuario" class="btn btn-dark-green"
+                                            type="submit">Registrarse</button>
+                                        <i id="icon_load_usuario"
+                                            class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Footer-->
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--/Modal de Registro de Usuario-->
+    </header>
+    <main>
+        <div class="container" style="margin-top: -42%">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <form id="Login" name="Login" method="POST" action="Ingreso">
+                        <div class="form-group">
+                            <!--Header-->
+                            <div class="modal-header bg-light">
+                                <img class="img-fluid mx-auto d-block" src="img/web/Index/logo-uni.png" alt="" >
+                            </div>
+                            <!--/Header-->
+                            <!--Body-->
+                            <div class="modal-body" style="background-color:white">
+                                <div id="errorLogin" class="alert alert-danger d-none" role="alert">
+                                    <h6 class="h6 text-center">Usuario o contraseña incorrecta</h6>
+                                </div>
+                                <div class="md-form mb-5">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <input type="text" id="NICK_USER" name="NICK_USER" class="form-control validate"
+                                        aria-describedby="NICK_USER">
+                                    <label data-success="" for="NICK_USER">Usuario</label>
+                                </div>
+                                <div class="md-form mb-4">
+                                    <i class="fa fa-lock prefix grey-text"></i>
+                                    <input type="password" id="PASSWORD_USER" name="PASSWORD_USER"
+                                        class="form-control validate">
+                                    <label data-success="" for="PASSWORD_USER">Contraseña</label>
+                                </div>
+                                <div class="justify-content-center align-items-center">
+                                    <button id="ingreso" class="btn btn-green d-block mx-auto"
+                                        type="submit">Ingresar</button>
+                                    <i id="load" class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
+                                </div>
+                            </div>
+                            <!--/Body-->
+                            <!--Footer-->
+                            <div class="modal-footer bg-light">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <p><a href=""><strong>¿Olvidaste tu contraseña?</strong></a></p>
+                                            <p><a href="" data-toggle="modal" data-target="#Mod_Reg_Usuario"><strong>¿No
+                                                        tienes una cuenta? Registrate</strong></a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/Footer-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Script para Ejecutar Bootstrap y JQuery -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/additional-methods.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mdb.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+
+</html>

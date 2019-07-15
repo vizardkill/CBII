@@ -1,0 +1,16 @@
+ 
+    @font-face {
+        font-family: 'P_Cursive'; 
+        src: url('../font/personalizado/Beautiful.ttf'); /*URL to font*/
+    }
+
+    @font-face {
+        font-family: 'P_Blade'; 
+        src: url('../font/personalizado/Blade.ttf'); /*URL to font*/
+    }
+  
+    
+    @font-face {
+        font-family: 'P_scylla'; 
+        src: url('../font/personalizado/scylla.ttf'); /*URL to font*/
+    }

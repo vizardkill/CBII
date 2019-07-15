@@ -1,0 +1,100 @@
+SET serveroutput ON;
+
+DROP TABLE PROGRAMAS_ACADEMICOS;
+DROP TABLE CATEGORIAS_SOLICITUDES;
+DROP TABLE TIPOS_ESTADOS_SOLICITUDES;
+DROP TABLE TIPOS_DOCUMENTOS;
+DROP TABLE TIPOS_USUARIOS;
+DROP TABLE MATERIAS;
+DROP TABLE USUARIOS;
+DROP TABLE SOLICITUDES;
+DROP TABLE LOGS;
+
+
+CREATE TABLE PROGRAMAS_ACADEMICOS(
+pk_id INTEGER,
+nombre VARCHAR2(60),
+codigo VARCHAR2(10),  
+descripcion VARCHAR2(255)
+)
+TABLESPACE CBII; 
+
+CREATE TABLE CATEGORIAS_SOLICITUDES(
+pk_id INTEGER,
+nombre VARCHAR2(30),
+prioridad NUMBER(1),
+descripcion VARCHAR2(255)
+)
+TABLESPACE CBII; 
+
+CREATE TABLE TIPOS_ESTADOS_SOLICITUDES(
+pk_id INTEGER,
+nombre VARCHAR2(20),
+descripcion VARCHAR2(60)
+)
+TABLESPACE CBII; 
+
+CREATE TABLE TIPOS_DOCUMENTOS(
+pk_id INTEGER,
+nombre VARCHAR2(20),
+abreviatura VARCHAR2(5)
+)
+TABLESPACE CBII;  
+
+CREATE TABLE TIPOS_USUARIOS(
+pk_id INTEGER,
+nombre VARCHAR2(35),
+descripcion VARCHAR(255)
+)
+TABLESPACE CBII; 
+
+CREATE TABLE MATERIAS(
+pk_id INTEGER,
+fk_programa_academico NUMBER(2),
+nombre VARCHAR2(30),
+codigo VARCHAR2(15)
+)
+TABLESPACE CBII; 
+
+CREATE TABLE USUARIOS(
+pk_documento VARCHAR2(15),
+fk_tipo_documento INTEGER,
+fk_tipo_usuario INTEGER,
+nombre   VARCHAR2(30),
+primer_apellido VARCHAR2(20),
+segundo_apellido VARCHAR2(20),
+telefono NUMBER(12),
+correo VARCHAR2(40),
+username VARCHAR2(30),
+pwd  VARCHAR2(255)
+)
+TABLESPACE CBII;  
+
+
+CREATE TABLE SOLICITUDES(
+pk_id INTEGER,
+fk_usuario_solicitante VARCHAR2(15),
+fk_usuario_encargado VARCHAR2(15),
+fk_estado NUMBER(1),
+fk_categoria NUMBER(2),
+fk_programa_academico NUMBER(2),
+titulo VARCHAR2(35),
+descripcion_problema VARCHAR2(255),
+descripcion_peticion VARCHAR2(255),
+descripcion_solucion VARCHAR2(255),
+fecha_creacion DATE,
+fecha_solucion DATE
+)
+TABLESPACE CBII;  
+
+
+CREATE TABLE LOGS(
+ pk_id NUMBER(4),
+ accion VARCHAR2(180),
+ usuario VARCHAR2(22),
+ fecha DATE
+)
+TABLESPACE CBII; 
+ 
+ 
+ 
