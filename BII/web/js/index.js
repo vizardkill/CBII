@@ -92,7 +92,7 @@ $(document).ready(function () {
             form_reg_documento: {
                 required: true, minlength: 5, maxlength: 15,
                 remote: {
-                    url: "../../Ingreso?Peticion=ValidarDocUsuario",
+                    url: "../../Register?Peticion=ValidarDocUsuario",
                     type: "GET",
                     data: {
                         form_reg_documento: function () {
@@ -104,7 +104,7 @@ $(document).ready(function () {
             form_reg_correo: {
                 required: true, email: true,
                 remote: {
-                    url: "../../Ingreso?Peticion=ValidarEmailUsuario",
+                    url: "../../Register?Peticion=ValidarEmailUsuario",
                     type: "GET",
                     data: {
                         form_reg_correo: function () {
@@ -116,7 +116,7 @@ $(document).ready(function () {
             form_reg_username: {
                 required: true, minlength: 4, maxlength: 10,
                 remote: {
-                    url: "../../Ingreso?Peticion=ValidarNickUsuario",
+                    url: "../../Register?Peticion=ValidarNickUsuario",
                     type: "GET",
                     data: {
                         form_reg_username: function () {
