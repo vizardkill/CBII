@@ -28,8 +28,9 @@
             aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content rounded ">
-                    <form id="Form_Registro_Usuario" name="Form_Registro_Usuario" method="POST"
-                        action="Registro?Peticion=Registro_Usuario">
+
+                    <form id="form_reg_usuario" name="form_reg_usuario" method="POST" class="needs-validation" novalidate
+                        action="Register?Peticion=Registro_Usuario">
                         <!--Header-->
                         <div class="modal-header bg-dark d-block">
                             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -43,7 +44,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col justify-content-center align-items-center">
-                                        <div id="msg_SucessRegistro_usuario" class="alert alert-success d-none"
+                                        <div id="msg_sucess_form_reg_usuario" class="alert alert-success d-none"
                                             role="alert">
                                             <h6 class="h6 text-center">Usuario registrado con ex&#237to</h6>
                                         </div>
@@ -53,36 +54,31 @@
                                     <div class="col-12 col-lg-6">
                                         <div class="md-form">
                                             <i class="fa fa-user-circle prefix grey-text"></i>
-                                            <input type="text" id="nombre" name="nombre"
-                                                class="form-control validate" aria-describedby="nombre">
-                                            <label data-success="" for="nombre">Nombres</label>
+                                            <input type="text" id="form_reg_nombre" name="form_reg_nombre"
+                                                class="form-control" aria-describedby="form_reg_nombre">
+                                            <label data-success="" for="form_reg_nombre">Nombres</label>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">
                                         <div class="md-form">
-                                            <input type="text" id="apellidos" name="apellidos"
-                                                class="form-control validate" aria-describedby="apellidos">
-                                            <label data-success="" for="apellidos">Apellidos</label>
+                                            <input type="text" id="form_reg_apellidos" name="form_reg_apellidos"
+                                                class="form-control" aria-describedby="form_reg_apellidos">
+                                            <label data-success="" for="form_reg_apellidos">Apellidos</label>
                                         </div>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-12 col-lg-6">
                                         <div class="md-form">
-                                            <div class="select">
-                                                <select id="fk_tipo_documento" name="fk_tipo_documento" class="select-text" required>
-                                                    <option disabled selected></option>
-                                                </select>
-                                                <span class="select-highlight"></span>
-                                                <span class="select-bar"></span>
-                                                <label class="select-label">Seleccione el tipo de documento</label>
-                                            </div>
+                                            <select id="form_reg_usuario_tipo_documento" name="form_reg_usuario_tipo_documento" class="browser-default custom-select">
+                                                <option value="">Seleccione el tipo de documento</option> 
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-12 col-lg-6">
                                         <div class="md-form">
                                             <i class="fas fa-address-card prefix grey-text"></i>
-                                            <input type="text" id="pk_documento" name="pk_documento"
-                                                class="form-control validate" aria-describedby="pk_documento">
-                                            <label data-success="" for="pk_documento">Numero de documento</label>
+                                            <input type="text" id="form_reg_documento" name="form_reg_documento"
+                                                class="form-control" aria-describedby="form_reg_documento">
+                                            <label data-success="" for="form_reg_documento">Numero de documento</label>
                                         </div>
                                     </div>
                                 </div>
@@ -90,25 +86,25 @@
                                     <div class="col-12">
                                         <div class="md-form">
                                             <i class="fas fa-envelope prefix grey-text"></i>
-                                            <input type="email" id="correo" name="correo"
-                                                class="form-control validate" aria-describedby="correo">
-                                            <label data-success="" for="correo">Correo electron&#237co</label>
+                                            <input type="email" id="form_reg_correo" name="form_reg_correo"
+                                                class="form-control" aria-describedby="form_reg_correo">
+                                            <label data-success="" for="form_reg_correo">Correo electron&#237co</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="md-form">
                                             <i class="fa fa-user prefix grey-text"></i>
-                                            <input type="text" id="username" name="username"
-                                                class="form-control validate" aria-describedby="username">
-                                            <label data-success="" for="username">Usuario</label>
+                                            <input type="text" id="form_reg_username" name="form_reg_username"
+                                                class="form-control" aria-describedby="form_reg_username">
+                                            <label data-success="" for="form_reg_username">Usuario</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="md-form">
                                             <i class="fas fa-mobile-alt prefix grey-text"></i>
-                                            <input type="text" id="telefono" name="telefono"
-                                                class="form-control validate" aria-describedby="telefono">
-                                            <label data-success="" for="telefono">Telefono</label>
+                                            <input type="text" id="form_reg_telefono" name="form_reg_telefono"
+                                                class="form-control" aria-describedby="form_reg_telefono">
+                                            <label data-success="" for="form_reg_telefono">Telefono</label>
                                         </div>
                                     </div>
                                 </div>
@@ -116,16 +112,16 @@
                                     <div class="col-12">
                                         <div class="md-form">
                                             <i class="fa fa-lock prefix grey-text"></i>
-                                            <input type="password" id="pwd" name="pwd"
-                                                class="form-control validate">
-                                            <label data-success="" for="pwd">Contrase&#241a</label>
+                                            <input type="password" id="form_reg_pwd" name="form_reg_pwd"
+                                                class="form-control">
+                                            <label data-success="" for="form_reg_pwd">Contrase&#241a</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="md-form">
                                             <i class="fa fa-lock prefix grey-text"></i>
-                                            <input type="password" id="pwd_2" name="pwd_2" class="form-control validate">
-                                            <label data-success="" for="pwd_2">Confirmar contrase&#241a</label>
+                                            <input type="password" id="form_reg_pwd_2" name="form_reg_pwd_2" class="form-control">
+                                            <label data-success="" for="form_reg_pwd_2">Confirmar contrase&#241a</label>
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +133,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col d-flex flex-center mx-auto">
-                                        <button id="btn_registro_usuario" class="btn btn-dark-green"
+                                        <button id="btn_submit_form_reg_usuario" class="btn btn-dark-green"
                                             type="submit">Registrarse</button>
                                         <i id="icon_load_form_reg_usuario"
                                             class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
@@ -156,7 +152,7 @@
         <div class="container" style="margin-top: -42%">
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <form id="form_login" name="form_login" method="POST" action="Ingreso">
+                    <form id="form_login_usuario" name="form_login_usuario" method="POST" action="Login" class="needs-validation" novalidate>
                         <div class="form-group">
                             <!--Header-->
                             <div class="modal-header bg-light">
@@ -165,25 +161,25 @@
                             <!--/Header-->
                             <!--Body-->
                             <div class="modal-body" style="background-color:white">
-                                <div id="msg_error_form_login" class="alert alert-danger d-none" role="alert">
+                                <div id="msg_error_form_login_usuario" class="alert alert-danger d-none" role="alert">
                                     <h6 class="h6 text-center">Usuario o contraseña incorrecta</h6>
                                 </div>
                                 <div class="md-form mb-5">
                                     <i class="fa fa-user prefix grey-text"></i>
-                                    <input type="text" id="NICK_USER" name="NICK_USER" class="form-control validate"
-                                        aria-describedby="NICK_USER">
-                                    <label data-success="" for="NICK_USER">Usuario</label>
+                                    <input type="text" id="form_login_username" name="form_login_username" class="form-control"
+                                        aria-describedby="form_login_username">
+                                    <label data-success="" for="form_login_username">Usuario</label>
                                 </div>
                                 <div class="md-form mb-4">
                                     <i class="fa fa-lock prefix grey-text"></i>
-                                    <input type="password" id="PASSWORD_USER" name="PASSWORD_USER"
-                                        class="form-control validate">
-                                    <label data-success="" for="PASSWORD_USER">Contraseña</label>
+                                    <input type="password" id="form_login_pwd" name="form_login_pwd"
+                                        class="form-control">
+                                    <label data-success="" for="form_login_pwd">Contraseña</label>
                                 </div>
                                 <div class="justify-content-center align-items-center">
-                                    <button id="btn_ingreso" class="btn btn-green d-block mx-auto"
+                                    <button id="btn_submit_form_login_usuario" class="btn btn-green d-block mx-auto"
                                         type="submit">Ingresar</button>
-                                    <i id="icon_load" class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
+                                    <i id="icon_load_form_login_usuario" class="fa fa-spinner fa-spin d-none text-center mx-auto"></i>
                                 </div>
                             </div>
                             <!--/Body-->
@@ -207,7 +203,7 @@
         </div>
     </main>
     <!-- Script para Ejecutar Bootstrap y JQuery -->
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/additional-methods.js"></script>
     <script src="js/popper.min.js"></script>

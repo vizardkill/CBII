@@ -6,11 +6,10 @@ CREATE OR REPLACE PROCEDURE LOGIN_USUARIO
     L_nick USUARIOS.USERNAME%TYPE,
     L_pwd  USUARIOS.PWD%TYPE,
 
-    L_name OUT USUARIOS.NOMBRE%TYPE,
-    L_lastname1 OUT USUARIOS.PRIMER_APELLIDO%TYPE,
-    L_lastname2 OUT USUARIOS.SEGUNDO_APELLIDO%TYPE,
-    L_email OUT USUARIOS.CORREO%TYPE,
-    L_tel OUT USUARIOS.TELEFONO%TYPE,
+    L_nombres OUT USUARIOS.NOMBRE%TYPE,
+    L_apellidos OUT USUARIOS.PRIMER_APELLIDO%TYPE,
+    L_correo OUT USUARIOS.CORREO%TYPE,
+
     L_tipo OUT USUARIOS.FK_TIPO_USUARIO%TYPE,
     L_doc OUT USUARIOS.PK_DOCUMENTO%TYPE,
 
@@ -30,18 +29,16 @@ BEGIN
 
     IF(L_aux = 1) THEN
        SELECT  
-                    NOMBRE,
-                    PRIMER_APELLIDO,
-                    SEGUNDO_APELLIDO,
-                    CORREO,
-                    TELEFONO,
-                    FK_TIPO_USUARIO,
-                    PK_DOCUMENTO
+                    nombres,
+                    apellidos,
+                    correo,
+                    fk_tipo_documento,
+                    pk_documento
                     
-                    INTO L_name, L_lastname1, L_lastname2, L_email, L_tel, L_tipo, L_doc
+                    INTO L_nombres, L_apellidos, L_correo, L_tipo, L_doc
 
                     FROM USUARIOS
-                    WHERE USERNAME = L_nick AND PWD = L_pwd;
+                    WHERE username = L_nick AND pwd = L_pwd;
 
     END IF;
 
