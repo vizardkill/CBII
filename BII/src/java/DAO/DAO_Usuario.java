@@ -6,7 +6,6 @@
 package DAO;
 
 import Conexion.Conexion;
-import Modelos.IUsuario;
 import Modelos.Usuario;
 import java.sql.CallableStatement;
 import java.sql.Connection;

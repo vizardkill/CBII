@@ -37,7 +37,7 @@ public class Register extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Register</title>");            
+            out.println("<title>Servlet Register</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Register at " + request.getContextPath() + "</h1>");
@@ -58,8 +58,9 @@ public class Register extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-                String Peticion = request.getParameter("Peticion");
+
+        response.setContentType("text/html;charset=UTF-8");
+        String Peticion = request.getParameter("Peticion");
 
         //************************************** Validaciones de la Tabla Usuario *********************************
         if (Peticion.equals("ValidarNickUsuario")) {
@@ -110,7 +111,31 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        String Peticion = request.getParameter("Peticion");
+
+        if (Peticion.equals("Registro_Usuario")) {
+            Usuario user = new Usuario(
+                    request.getParameter("form_reg_documento"),
+                    Integer.valueOf(request.getParameter("form_reg_usuario_tipo_documento")),
+                    Integer.valueOf(request.getParameter("form_reg_fk_tipo_usuario")),
+                    request.getParameter("form_reg_nombre"),
+                    request.getParameter("form_reg_apellidos"),
+                    request.getParameter("form_reg_telefono"),
+                    request.getParameter("form_reg_correo"),
+                    request.getParameter("form_reg_username"),
+                    request.getParameter("form_reg_pwd")
+            );
+            controller_Usuario cuser = new controller_Usuario();
+
+            boolean result = cuser.setUser(user);
+            if (result) {
+                response.getWriter().write("true");
+            } else {
+                response.getWriter().write("false");
+            }
+        }
+
     }
 
     /**

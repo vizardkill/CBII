@@ -7,7 +7,7 @@ package Controladores;
 
 import DAO.DAO_Usuario;
 import Metodos.SecurityPass;
-import Modelos.IUsuario;
+import DAO.IUsuario;
 import Modelos.Usuario;
 import java.util.List;
 

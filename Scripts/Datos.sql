@@ -1,19 +1,15 @@
 --INSERTAR DATOS BD
 ----------------------
-INSERT INTO TIPO_DOCUMENTO VALUES(1,'CEDULA CIUDADANIA','CC'); 
-INSERT INTO TIPO_USUARIO VALUES (1,'ADMINISTRADOR','ADMI',1,1,1,1); 
-INSERT INTO USUARIO  VALUES (1000,1,1,'CASOS_ESPECIALES','MASTER','MASTER',000000000,'CASOSESPECIALES@GMAIL.COM','ADMIN','CASOSESPECIALESPOLI19',NULL);
-INSERT INTO USUARIO  VALUES (2,1,1,'CASOS_ESPECIALES','MASTER','MASTER',000000000,'CASOSESPECIALES@GMAIL.COM','VILVA','CASOSESPECIALESPOLI19',NULL);
-INSERT INTO USUARIO  VALUES (21,1,1,'CASOS_ESPECIALES','MASTER','MASTER',000000000,'CASOSESPECIALES@GMAIL.COM','PETROS','CASOSESPECIALESPOLI19',NULL);
-INSERT INTO USUARIO  VALUES (23,1,1,'CASOS_ESPECIALES','MASTER','MASTER',000000000,'CASOSESPECIALES@GMAIL.COM','CASOS1','CASOSESPECIALESPOLI19',NULL);
+INSERT INTO TIPOS_DOCUMENTOS VALUES(1,'CEDULA CIUDADANIA','CC'); 
+INSERT INTO TIPOS_USUARIOS VALUES (1,'USUARIO','Usuario para el envio de solicitudes'); 
 -----------------------
 
-INSERT INTO PROGRAMA_ACADEMICO VALUES (1,'Tecnología en Sistematización de Datos','53587','TNLG','El programa de tecnología en Sistematización 
+INSERT INTO PROGRAMAS_ACADEMICOS VALUES (1,'Tecnología en Sistematización de Datos','TNLG53587','El programa de tecnología en Sistematización 
 de Datos enmarcado dentro del área de desarrollo de software, es el siguiente ciclo en el proceso de formación iniciado en la Técnica Profesional.');
 
-INSERT INTO ESTADO_SOLICITUD VALUES (1,'Abierta','La solicitud esta creada, los empleados no la han revisado.');
-INSERT INTO ESTADO_SOLICITUD VALUES (2,'Procesada','La solicitud esta siendo revisada por los empleados.');
-INSERT INTO ESTADO_SOLICITUD VALUES (3,'Terminada','La solicitud se ha completado, termino el proceso.');
+INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (1,'Abierta','La solicitud esta creada, los empleados no la han revisado.');
+INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (2,'Procesada','La solicitud esta siendo revisada por los empleados.');
+INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (3,'Terminada','La solicitud se ha completado, termino el proceso.');
 
 INSERT INTO CATEGORIA_SOLICITUD VALUES (1,'Casos Especiales',5,'Estudiantes que no posen ninguna materia matriculada en su linea academica');
 

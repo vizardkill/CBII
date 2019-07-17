@@ -33,6 +33,8 @@ $.validator.addMethod("letras", function (value) {
 
 $(document).ready(function () {
 
+    //################################## Esta Seccion establece la validacion de los diferentes Formularios del Sistema a travez de JQuery Validator
+
     /** Se configura el Ajax para que permita redirigir las solicitudes a travez del servlet */
     $('#form_login_usuario').validate({
         rules: {
@@ -82,6 +84,22 @@ $(document).ready(function () {
         }
     });
 
+    //Carga los perfiles en el elemento Select del Formulario de Creación de Usuario
+    $.ajax({
+        type: "GET",
+        url: "../../Data?Peticion=data_tipos_documentos",
+        dataType: "json",
+
+        success: function (Data) {
+            $.each(Data.TIPOS_DOCUMENTOS, function (i, item) {
+                $("#form_reg_usuario_tipo_documento").append('<option value=' + item.pk_id + '>' + item.abreviatura + '</option>');
+            });
+        },
+        error: function (response) {
+            alert('Error interno con el servidor, intentalo de nuevo más tarde')
+            console.log(response);
+        }
+    });
 
     //Validacion del Formulario para el registro de un usuario
     $('#form_reg_usuario').validate({
