@@ -3,7 +3,7 @@ jQuery.validator.setDefaults({
     errorElement: 'p',
     errorPlacement: function (error, element) {
         error.addClass('invalid-feedback');
-        element.closest('.md-form').append(error);
+        element.closest('.form-group').append(error);
     },
     highlight: function (element, errorClass, validClass, error) {
         $(element).addClass('is-invalid').removeClass('is-valid');
@@ -11,11 +11,11 @@ jQuery.validator.setDefaults({
     unhighlight: function (element, errorClass, validClass) {
         $(element).removeClass('is-invalid').addClass('is-valid');
     },
-    success: function(label) {
+    /*success: function(label) {
         label
           .text('OK!').addClass('valid-feedback').removeClass('invalid-feedback')
-          .closest('.md-form')
-    }
+          .closest('.form-group')
+    }*/
 });
 
 
@@ -41,10 +41,8 @@ $(document).ready(function () {
     //################################## Esta Seccion establece la validacion de los diferentes Formularios del Sistema a travez de JQuery Validator
 
     /** Se configura el Ajax para que permita redirigir las solicitudes a travez del servlet */
-    var validation_form_login_usuario = $('#form_login_usuario').validate({
+    $('#form_login_usuario').validate({
         
-
-
         rules: {
             form_login_username: { required: true },
             form_login_pwd: { required: true }
@@ -219,6 +217,7 @@ $(document).ready(function () {
                     if (response == 'true') {
 
                         $("#form_reg_usuario")[0].reset();
+                        $("#form_reg_usuario .form-control").removeClass('is-valid');
                         
 
                         $('#mod_form_reg_usuario').modal('hide');

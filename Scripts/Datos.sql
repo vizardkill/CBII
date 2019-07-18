@@ -11,7 +11,7 @@ INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (1,'Abierta','La solicitud esta cre
 INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (2,'Procesada','La solicitud esta siendo revisada por los empleados.');
 INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (3,'Terminada','La solicitud se ha completado, termino el proceso.');
 
-INSERT INTO CATEGORIA_SOLICITUD VALUES (1,'Casos Especiales',5,'Estudiantes que no posen ninguna materia matriculada en su linea academica');
+INSERT INTO CATEGORIAS_SOLICITUDES VALUES (1,'Casos Especiales',5,'Estudiantes que no posen ninguna materia matriculada en su linea academica');
 
 INSERT INTO SOLICITUD VALUES (1,1000,1,1,1,1,'SOLICITUD PARA PETICION GRADOS',
 'PROBLEMA CON GRADOS','PROBLEMA CON GRADOS', TO_DATE('2019/06/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss'));

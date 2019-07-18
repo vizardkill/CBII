@@ -63,80 +63,82 @@
                                 <div class="row">
                                     <input type="hidden" id="form_reg_fk_tipo_usuario" name="form_reg_fk_tipo_usuario"
                                         value="1">
+
                                     <div class="col-12 col-lg-6">
-                                        <div class="md-form">
-                                            <i class="fa fa-user-circle prefix grey-text"></i>
+                                        <div class="md-form form-group">
+                                            <i class="fa fa-user-circle prefix"></i>
                                             <input type="text" id="form_reg_nombre" name="form_reg_nombre"
                                                 class="form-control" aria-describedby="form_reg_nombre">
-                                            <label data-success="" for="form_reg_nombre">Nombres</label>
+                                            <label for="form_reg_nombre">Nombres</label>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <div class="md-form">
+                                        <div class="md-form form-group">
                                             <input type="text" id="form_reg_apellidos" name="form_reg_apellidos"
                                                 class="form-control" aria-describedby="form_reg_apellidos">
-                                            <label data-success="" for="form_reg_apellidos">Apellidos</label>
+                                            <label for="form_reg_apellidos">Apellidos</label>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <div class="md-form">
+                                        <div class="form-group">
+                                            <label  for="form_reg_usuario_tipo_documento">Tipo de Identificacion</label>
                                             <select id="form_reg_usuario_tipo_documento"
                                                 name="form_reg_usuario_tipo_documento"
-                                                class="browser-default custom-select">
+                                                class="browser-default custom-select form-control">
                                                 <option value="">Seleccione el tipo de documento</option>
-                                            </select>
+                                            </select>      
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <div class="md-form">
-                                            <i class="fas fa-address-card prefix grey-text"></i>
+                                        <div class="md-form form-group">
+                                            <i class="fas fa-address-card prefix"></i>
                                             <input type="text" id="form_reg_documento" name="form_reg_documento"
                                                 class="form-control" aria-describedby="form_reg_documento">
-                                            <label data-success="" for="form_reg_documento">Numero de documento</label>
+                                            <label for="form_reg_documento">Numero de documento</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="md-form">
-                                            <i class="fas fa-envelope prefix grey-text"></i>
+                                        <div class="md-form form-group">
+                                            <i class="fas fa-envelope prefix"></i>
                                             <input type="email" id="form_reg_correo" name="form_reg_correo"
                                                 class="form-control" aria-describedby="form_reg_correo">
-                                            <label data-success="" for="form_reg_correo">Correo electron&#237co</label>
+                                            <label  for="form_reg_correo">Correo electron&#237co</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="md-form">
-                                            <i class="fas fa-mobile-alt prefix grey-text"></i>
+                                        <div class="md-form form-group">
+                                            <i class="fas fa-mobile-alt prefix"></i>
                                             <input type="text" id="form_reg_telefono" name="form_reg_telefono"
                                                 class="form-control" aria-describedby="form_reg_telefono">
-                                            <label data-success="" for="form_reg_telefono">Telefono</label>
+                                            <label  for="form_reg_telefono">Telefono</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="md-form">
-                                            <i class="fa fa-user prefix grey-text"></i>
+                                        <div class="md-form form-group">
+                                            <i class="fa fa-user prefix"></i>
                                             <input type="text" id="form_reg_username" name="form_reg_username"
                                                 class="form-control" aria-describedby="form_reg_username">
-                                            <label data-success="" for="form_reg_username">Usuario</label>
+                                            <label for="form_reg_username">Usuario</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="md-form">
-                                            <i class="fa fa-lock prefix grey-text"></i>
+                                        <div class="md-form form-group">
+                                            <i class="fa fa-lock prefix"></i>
                                             <input type="password" id="form_reg_pwd" name="form_reg_pwd"
                                                 class="form-control">
-                                            <label data-success="" for="form_reg_pwd">Contrase&#241a</label>
+                                            <label for="form_reg_pwd">Contrase&#241a</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="md-form">
-                                            <i class="fa fa-lock prefix grey-text"></i>
+                                        <div class="md-form form-group">
+                                            <i class="fa fa-lock prefix"></i>
                                             <input type="password" id="form_reg_pwd_2" name="form_reg_pwd_2"
                                                 class="form-control">
-                                            <label data-success="" for="form_reg_pwd_2">Confirmar contrase&#241a</label>
+                                            <label for="form_reg_pwd_2">Confirmar contrase&#241a</label>
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +172,7 @@
             <div class="row justify-content-center">
                 <div class="col-6">
                     <form id="form_login_usuario" name="form_login_usuario" method="POST" action="Login">
-                        <div class="form-group">
+                      
                             <!--Header-->
                             <div class="modal-header bg-light">
                                 <img class="img-fluid mx-auto d-block" src="img/web/Index/logo-uni.png" alt="">
@@ -182,14 +184,14 @@
                                 <div id="msg_error_form_login_usuario" class="alert alert-danger d-none" role="alert">
                                     <h6 class="h6 text-center">Usuario o contraseña incorrecta</h6>
                                 </div>
-                                <div class="md-form mb-5">
-                                    <i class="fa fa-user prefix grey-text"></i>
+                                <div class="md-form mb-5 form-group">
+                                    <i class="fa fa-user prefix"></i>
                                     <input type="text" id="form_login_username" name="form_login_username"
                                         class="form-control" aria-describedby="form_login_username">
                                     <label data-success="" for="form_login_username">Usuario</label>
                                 </div>
-                                <div class="md-form mb-4">
-                                    <i class="fa fa-lock prefix grey-text"></i>
+                                <div class="md-form mb-4 form-group">
+                                    <i class="fa fa-lock prefix"></i>
                                     <input type="password" id="form_login_pwd" name="form_login_pwd"
                                         class="form-control">
                                     <label data-success="" for="form_login_pwd">Contraseña</label>
@@ -216,7 +218,7 @@
                                 </div>
                             </div>
                             <!--/Footer-->
-                        </div>
+                     
                     </form>
                 </div>
             </div>
