@@ -6,10 +6,15 @@ jQuery.validator.setDefaults({
         element.closest('.md-form').append(error);
     },
     highlight: function (element, errorClass, validClass, error) {
-        $(element).addClass('is-invalid');
+        $(element).addClass('is-invalid').removeClass('is-valid');
     },
     unhighlight: function (element, errorClass, validClass) {
         $(element).removeClass('is-invalid').addClass('is-valid');
+    },
+    success: function(label) {
+        label
+          .text('OK!').addClass('valid-feedback').removeClass('invalid-feedback')
+          .closest('.md-form')
     }
 });
 
@@ -36,7 +41,10 @@ $(document).ready(function () {
     //################################## Esta Seccion establece la validacion de los diferentes Formularios del Sistema a travez de JQuery Validator
 
     /** Se configura el Ajax para que permita redirigir las solicitudes a travez del servlet */
-    $('#form_login_usuario').validate({
+    var validation_form_login_usuario = $('#form_login_usuario').validate({
+        
+
+
         rules: {
             form_login_username: { required: true },
             form_login_pwd: { required: true }
@@ -84,6 +92,7 @@ $(document).ready(function () {
         }
     });
 
+
     //Carga los perfiles en el elemento Select del Formulario de Creación de Usuario
     $.ajax({
         type: "GET",
@@ -106,7 +115,7 @@ $(document).ready(function () {
         rules: {
             form_reg_nombre: { required: true, minlength: 3, maxlength: 20, letras: true },
             form_reg_apellidos: { required: true, minlength: 5, maxlength: 20, letras: true },
-            form_reg_usuario_tipo_documento: { required: true},
+            form_reg_usuario_tipo_documento: { required: true },
             form_reg_documento: {
                 required: true, minlength: 5, maxlength: 15,
                 remote: {
@@ -193,6 +202,8 @@ $(document).ready(function () {
             }
         },
 
+
+
         submitHandler: function () {
             $.ajax({
                 url: $("#form_reg_usuario").attr('action'),
@@ -206,11 +217,18 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     if (response == 'true') {
-                        $('#msg_sucess_form_reg_usuario').slideDown('slow').removeClass('d-none');
-                        function ShowSucess() {
-                            $('#msg_sucess_form_reg_usuario').slideUp('slow');
-                        } setTimeout(ShowSucess, 4000);
+
                         $("#form_reg_usuario")[0].reset();
+                        
+
+                        $('#mod_form_reg_usuario').modal('hide');
+                        $('#mod_sucess').modal('show');
+                        $('#mod_sucess_text').text('Usuario registrado con éxito');
+
+                        function ShowSucess() {
+                            $('#mod_sucess').modal('hide');
+                        } setTimeout(ShowSucess, 4000);         
+
                     }
                 },
                 error: function (response) {
