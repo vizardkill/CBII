@@ -14,19 +14,16 @@ import java.util.Calendar;
  */
 public class Calendario {
     public String Fecha_Registro()  {
-        java.util.Date utilDate = new java.util.Date();
-        long lnmilisegundos = utilDate.getTime();
         Calendar cal = Calendar.getInstance();
         String sqlDate = fechaString(cal);
-        
-        java.sql.Time sqlTime = new java.sql.Time(lnmilisegundos);
+
         String f = sqlDate;
         return f;
     }
 
     private String fechaString(Calendar cal) {
         String aux = null;
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm a");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         if (cal != null) {
             aux = sdf.format(cal.getTime());
         }

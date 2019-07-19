@@ -5,7 +5,10 @@
  */
 package Servlets;
 
+import Controladores.controller_Solicitud;
 import Controladores.controller_Usuario;
+import Metodos.Calendario;
+import Modelos.Solicitud;
 import Modelos.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -111,6 +115,7 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession(true);
         response.setContentType("text/html;charset=UTF-8");
         String Peticion = request.getParameter("Peticion");
 
@@ -129,6 +134,33 @@ public class Register extends HttpServlet {
             controller_Usuario cuser = new controller_Usuario();
 
             boolean result = cuser.setUser(user);
+            if (result) {
+                response.getWriter().write("true");
+            } else {
+                response.getWriter().write("false");
+            }
+        }
+        
+        if (Peticion.equals("Registro_Solicitud")) {
+            Calendario fechaR = new Calendario();
+            String fecha_registro = fechaR.Fecha_Registro();
+            Solicitud sol = new Solicitud(
+                    0,
+                    String.valueOf(session.getAttribute("documento_usuario")),
+                    null,
+                    request.getParameter("form_reg_sol_fk_estado"),
+                    request.getParameter("form_reg_sol_fk_categoria"),
+                    request.getParameter("form_reg_sol_fk_programa_academico"),
+                    request.getParameter("form_reg_sol_titulo"),
+                    request.getParameter("form_reg_sol_descripcion_problema"),
+                    request.getParameter("form_reg_sol_descripcion_peticion"),
+                    null,
+                    fecha_registro,
+                    null               
+            );
+            controller_Solicitud csol = new controller_Solicitud();
+            
+            boolean result = csol.setSolicitud(sol);
             if (result) {
                 response.getWriter().write("true");
             } else {

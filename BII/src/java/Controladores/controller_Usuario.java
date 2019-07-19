@@ -9,7 +9,6 @@ import DAO.DAO_Usuario;
 import Metodos.SecurityPass;
 import DAO.IUsuario;
 import Modelos.Usuario;
-import java.util.List;
 
 /**
  *
@@ -23,14 +22,12 @@ public class controller_Usuario {
         user.setPwd(hash);
 
         IUsuario udao = new DAO_Usuario();
-        boolean result = udao.setUser(user);
-        return result;
+        return udao.setUser(user);     
     }
 
     public boolean updateUser(Usuario user) {
         IUsuario udao = new DAO_Usuario();
-        boolean result = udao.updateUser(user);
-        return result;
+        return udao.updateUser(user);    
     }
 
     //**********************************PROCEDIMIENTOS ALMACENADOS**************************************
@@ -40,13 +37,11 @@ public class controller_Usuario {
         user.setPwd(hash);
 
         IUsuario udao = new DAO_Usuario();
-        boolean result = udao.P_Login(user);
-        return result;
+        return udao.P_Login(user);    
     }
 
     public boolean P_ValidUser(String tipo, Usuario user) {
         IUsuario udao = new DAO_Usuario();
-        boolean result = udao.P_ValidUser(tipo, user);
-        return result;
+        return udao.P_ValidUser(tipo, user);      
     }
 }

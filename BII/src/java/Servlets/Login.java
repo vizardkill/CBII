@@ -73,10 +73,10 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        HttpSession session = request.getSession(true);
         response.setContentType("text/html;charset=UTF-8");
 
-        HttpSession session = request.getSession(true);
+        
         
         Usuario user = new Usuario();
         user.setUsername(request.getParameter("form_login_username"));

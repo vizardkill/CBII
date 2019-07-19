@@ -19,6 +19,43 @@ jQuery.validator.setDefaults({
 });
 
 $(document).ready(function () {
+    //Carga las categorias de solicitudes en el elemento Select del Formulario de Creación de Solicitudes
+    $.ajax({
+        type: "GET",
+        url: "../../Data?Peticion=data_categorias_solicitudes",
+        dataType: "json",
+
+        success: function (Data) {
+            $.each(Data.CATEGORIAS_SOLICITUDES, function (i, item) {
+                $("#form_reg_sol_fk_categoria").append('<option value=' + item.pk_id + '>' + item.nombre + '</option>');
+            });
+        },
+        error: function (response) {
+            alert('Error interno con el servidor, intentalo de nuevo más tarde')
+            console.log(response);
+        }
+    });
+
+    //Carga los programas academicos en el elemento Select del Formulario de Creación de Solicitudes
+    $.ajax({
+        type: "GET",
+        url: "../../Data?Peticion=data_programas_academicos",
+        dataType: "json",
+
+        success: function (Data) {
+            $.each(Data.PROGRAMAS_ACADEMICOS, function (i, item) {
+                $("#form_reg_sol_fk_programa_academico").append('<option value=' + item.pk_id + '>' + item.nombre + '</option>');
+            });
+        },
+        error: function (response) {
+            alert('Error interno con el servidor, intentalo de nuevo más tarde')
+            console.log(response);
+        }
+    });
+
+
+
+
     $('#form_reg_sol').validate({
         rules: {
             form_reg_sol_fk_categoria: {required: true},

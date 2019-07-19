@@ -13,9 +13,9 @@ public class Solicitud {
     private int pk_id;
     private String fk_usuario_solicitante;
     private String fk_usuario_encargado;
-    private int fk_estado;
-    private int fk_categoria;
-    private int fk_programa_academico;
+    private String fk_estado;
+    private String fk_categoria;
+    private String fk_programa_academico;
     private String titulo;
     private String descripcion_problema;
     private String descripcion_peticion;
@@ -26,7 +26,7 @@ public class Solicitud {
     public Solicitud() {
     }
 
-    public Solicitud(int pk_id, String fk_usuario_solicitante, String fk_usuario_encargado, int fk_estado, int fk_categoria, int fk_programa_academico, String titulo, String descripcion_problema, String descripcion_peticion, String descripcion_solucion, String fecha_creacion, String fecha_solucion) {
+    public Solicitud(int pk_id, String fk_usuario_solicitante, String fk_usuario_encargado, String fk_estado, String fk_categoria, String fk_programa_academico, String titulo, String descripcion_problema, String descripcion_peticion, String descripcion_solucion, String fecha_creacion, String fecha_solucion) {
         this.pk_id = pk_id;
         this.fk_usuario_solicitante = fk_usuario_solicitante;
         this.fk_usuario_encargado = fk_usuario_encargado;
@@ -65,27 +65,27 @@ public class Solicitud {
         this.fk_usuario_encargado = fk_usuario_encargado;
     }
 
-    public int getFk_estado() {
+    public String getFk_estado() {
         return fk_estado;
     }
 
-    public void setFk_estado(int fk_estado) {
+    public void setFk_estado(String fk_estado) {
         this.fk_estado = fk_estado;
     }
 
-    public int getFk_categoria() {
+    public String getFk_categoria() {
         return fk_categoria;
     }
 
-    public void setFk_categoria(int fk_categoria) {
+    public void setFk_categoria(String fk_categoria) {
         this.fk_categoria = fk_categoria;
     }
 
-    public int getFk_programa_academico() {
+    public String getFk_programa_academico() {
         return fk_programa_academico;
     }
 
-    public void setFk_programa_academico(int fk_programa_academico) {
+    public void setFk_programa_academico(String fk_programa_academico) {
         this.fk_programa_academico = fk_programa_academico;
     }
 
@@ -136,8 +136,6 @@ public class Solicitud {
     public void setFecha_solucion(String fecha_solucion) {
         this.fecha_solucion = fecha_solucion;
     }
-    
-    
-    
+
     
 }

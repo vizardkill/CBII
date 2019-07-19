@@ -19,6 +19,6 @@ public interface ISolicitud {
     
     public boolean deleteSolicitud(Solicitud sol);
     
-    public List<Solicitud> getSolicitud();
+    public List<Solicitud> getSolicitud(Solicitud sol);
     
 }

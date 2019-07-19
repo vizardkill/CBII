@@ -32,9 +32,9 @@ public class DAO_Solicitud implements ISolicitud {
                 ps.setInt(1, sol.getPk_id());
                 ps.setString(2, sol.getFk_usuario_solicitante());
                 ps.setString(3, sol.getFk_usuario_encargado());
-                ps.setInt(4, sol.getFk_estado());
-                ps.setInt(5, sol.getFk_categoria());
-                ps.setInt(6, sol.getFk_programa_academico());
+                ps.setInt(4, Integer.valueOf(sol.getFk_estado()));
+                ps.setInt(5, Integer.valueOf(sol.getFk_categoria()));
+                ps.setInt(6, Integer.valueOf(sol.getFk_programa_academico()));
                 ps.setString(7, sol.getTitulo());
                 ps.setString(8, sol.getDescripcion_problema());
                 ps.setString(9, sol.getDescripcion_peticion());
@@ -68,8 +68,8 @@ public class DAO_Solicitud implements ISolicitud {
         try {
             con = Conexion.getConexion();
             try (PreparedStatement ps = con.prepareStatement(sql)) {
-                ps.setInt(1, sol.getFk_categoria());
-                ps.setInt(2, sol.getFk_programa_academico());
+                ps.setInt(1, Integer.valueOf(sol.getFk_categoria()));
+                ps.setInt(2, Integer.valueOf(sol.getFk_programa_academico()));
                 ps.setString(3, sol.getTitulo());
                 ps.setString(4, sol.getDescripcion_problema());
                 ps.setString(5, sol.getDescripcion_peticion());
@@ -109,28 +109,38 @@ public class DAO_Solicitud implements ISolicitud {
     }
 
     @Override
-    public List<Solicitud> getSolicitud() {
+    public List<Solicitud> getSolicitud(Solicitud sol) {
         Connection con;
-        Statement stm;
         ResultSet rs;
+        PreparedStatement ps;
 
-        String sql = "SELECT * FROM SOLICITUDES ORDER BY fecha_creacion";
+        String sql = 
+                  "SELECT * FROM v_Solicitudes_Usuarios ORDER BY fecha_creacion"
+                + "WHERE pk_documento = ?";
 
         List<Solicitud> lista_sol = new ArrayList<>();
 
-        try {
+        try { 
             con = Conexion.getConexion();
-            stm = con.createStatement();
-            rs = stm.executeQuery(sql);
+            
+            ps = con.prepareStatement(sql);
+            ps.setString(1, sol.getFk_usuario_solicitante()); 
+  
+            rs = ps.executeQuery(sql);
             while (rs.next()) {
-                Solicitud sol = new Solicitud();
-                sol.setPk_id(rs.getInt("pk_id"));
-                sol.setFk_usuario_solicitante(rs.getString("fk_usuario_solicitante"));
-                sol.setFk_usuario_encargado(rs.getString("fk_usuario_encargado"));
-                sol.setFk_estado();
-                lista_sol.add(sol);
+                Solicitud aux_sol = new Solicitud();
+                aux_sol.setPk_id(rs.getInt("Id"));
+                aux_sol.setFk_estado(rs.getString("Estado"));
+                aux_sol.setFk_categoria(rs.getString("Categoria"));
+                aux_sol.setFk_programa_academico(rs.getString("Programa_Academico"));
+                aux_sol.setDescripcion_problema(rs.getString("descripcion_problema"));
+                aux_sol.setDescripcion_peticion(rs.getString("descripcion_peticion"));
+                aux_sol.setDescripcion_solucion(rs.getString("descripcion_solucion"));
+                aux_sol.setFecha_creacion(rs.getString("fecha_creacion"));
+                aux_sol.setFecha_solucion(rs.getString("fecha_solucion"));
+                lista_sol.add(aux_sol);
             }
-            stm.close();
+            ps.close();
             rs.close();
             con.close();
         } catch (SQLException e) {

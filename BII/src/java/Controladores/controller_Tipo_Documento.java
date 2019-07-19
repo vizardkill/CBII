@@ -18,7 +18,6 @@ public class controller_Tipo_Documento {
 
     public List<Tipo_Documento> getTiposDocumentos() {
         ITipo_Documento td_dao = new DAO_Tipo_Documento();
-        List<Tipo_Documento> lista_TP = td_dao.getTipo_Documento();
-        return lista_TP;
+        return td_dao.getTipo_Documento();        
     }
 }

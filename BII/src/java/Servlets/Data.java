@@ -6,12 +6,14 @@
 package Servlets;
 
 import Metodos.Json_Datos;
+import Modelos.Solicitud;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -57,13 +59,27 @@ public class Data extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        HttpSession session = request.getSession(true);
         response.setContentType("application/json;charset=UTF-8");
         String Peticion = request.getParameter("Peticion");
         Json_Datos data = new Json_Datos();
 
         if (Peticion.equals("data_tipos_documentos")) {
             response.getWriter().write(data.Json_Tipo_Documentos());
+        }
+        
+        if (Peticion.equals("data_solicitudes_usuarios")) {
+            Solicitud sol = new Solicitud();
+            sol.setFk_usuario_solicitante(String.valueOf(session.getAttribute("documento_usuario")));
+            response.getWriter().write(data.Json_Solicitudes_Usuarios(sol));  
+        }
+        
+        if (Peticion.equals("data_categorias_solicitudes")) {
+            response.getWriter().write(data.Json_Categorias_Solicitudes());       
+        }
+        
+        if (Peticion.equals("data_programas_academicos")) {
+            response.getWriter().write(data.Json_Programas_Academicos());      
         }
     }
 
