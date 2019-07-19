@@ -79,8 +79,8 @@ public class Login extends HttpServlet {
         HttpSession session = request.getSession(true);
         
         Usuario user = new Usuario();
-        user.setUsername(request.getParameter("NICK_USER"));
-        user.setPwd(request.getParameter("PASSWORD_USER"));
+        user.setUsername(request.getParameter("form_login_username"));
+        user.setPwd(request.getParameter("form_login_pwd"));
 
         Json_Datos login = new Json_Datos();
         if (login.Json_Login(user).equals("false")) {
@@ -88,9 +88,9 @@ public class Login extends HttpServlet {
         } else {
             session.setAttribute("username_usuario", user.getUsername());
             session.setAttribute("nombres_usuario", user.getNombres());
-            session.setAttribute("apellidos_usuairo", user.getApellidos());
+            session.setAttribute("apellidos_usuario", user.getApellidos());
             session.setAttribute("documento_usuario", user.getPk_documento());
-            request.getRequestDispatcher("JSP/Usuarios/Inicio.jsp").forward(request, response);
+            request.getRequestDispatcher("JSP/Usuario/Inicio.jsp").forward(request, response);
         }
     }
 

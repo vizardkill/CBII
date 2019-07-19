@@ -19,7 +19,7 @@
                     <div class="container">
                         <div class="row">
                             <input type="hidden" name="form_reg_sol_fk_usuario_solicitante">
-                            ${sessionScope['NICK_USER']}
+                            ${sessionScope['username_usuario']}
                             </input>
                             <input type="hidden" name="form_reg_sol_fk_estado" value="1">
 

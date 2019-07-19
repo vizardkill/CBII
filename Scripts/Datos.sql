@@ -1,12 +1,9 @@
 --INSERTAR DATOS BD
 ----------------------
 INSERT INTO TIPOS_DOCUMENTOS VALUES(1,'CEDULA CIUDADANIA','CC'); 
-INSERT INTO TIPOS_USUARIOS VALUES (1,'USUARIO','Usuario para el envio de solicitudes'); 
------------------------
-
+INSERT INTO TIPOS_USUARIOS VALUES (1,'USUARIO','Usuario para el envio de solicitudes');
 INSERT INTO PROGRAMAS_ACADEMICOS VALUES (1,'Tecnología en Sistematización de Datos','TNLG53587','El programa de tecnología en Sistematización 
 de Datos enmarcado dentro del área de desarrollo de software, es el siguiente ciclo en el proceso de formación iniciado en la Técnica Profesional.');
-
 INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (1,'Abierta','La solicitud esta creada, los empleados no la han revisado.');
 INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (2,'Procesada','La solicitud esta siendo revisada por los empleados.');
 INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (3,'Terminada','La solicitud se ha completado, termino el proceso.');

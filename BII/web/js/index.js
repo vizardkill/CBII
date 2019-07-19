@@ -75,7 +75,7 @@ $(document).ready(function () {
                             $('#msg_error_form_login_usuario').slideUp('slow');
                         } setTimeout(error, 4000);
                     } else {
-                        window.location.href = "JSP/Usuarios/Inicio.jsp";
+                        window.location.href = "JSP/Usuario/Inicio.jsp";
                     }
                 },
                 error: function (response) {

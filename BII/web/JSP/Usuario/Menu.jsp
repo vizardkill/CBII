@@ -22,7 +22,7 @@
                 </div>
                 <div class="user-info">
                     <span class="user-name">
-                        <strong>${sessionScope['NICK_USER']}</strong>
+                        <strong>${sessionScope['username_usuario']}</strong>
                     </span>
                     <span class="user-role">Usuario Autenticado</span>
                     <span class="user-status">

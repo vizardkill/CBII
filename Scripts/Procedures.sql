@@ -3,15 +3,15 @@
 --Procedimiento almacenado, para la validacion de usuario y contraseña, que permite retornar los datos del usuario--
 CREATE OR REPLACE PROCEDURE LOGIN_USUARIO 
 (
-    L_nick USUARIOS.USERNAME%TYPE,
-    L_pwd  USUARIOS.PWD%TYPE,
+    L_nick usuarios.username%TYPE,
+    L_pwd  usuarios.pwd%TYPE,
 
-    L_nombres OUT USUARIOS.NOMBRE%TYPE,
-    L_apellidos OUT USUARIOS.PRIMER_APELLIDO%TYPE,
-    L_correo OUT USUARIOS.CORREO%TYPE,
+    L_nombres OUT usuarios.nombres%TYPE,
+    L_apellidos OUT usuarios.apellidos%TYPE,
+    L_correo OUT usuarios.CORREO%TYPE,
 
-    L_tipo OUT USUARIOS.FK_TIPO_USUARIO%TYPE,
-    L_doc OUT USUARIOS.PK_DOCUMENTO%TYPE,
+    L_tipo OUT usuarios.fk_tipo_usuario%TYPE,
+    L_doc OUT usuarios.pk_documento%TYPE,
 
     L_aux OUT INTEGER
 ) AS
@@ -20,7 +20,7 @@ BEGIN
     
     SELECT CASE 
            WHEN EXISTS( 
-               SELECT * FROM USUARIOS WHERE USERNAME = L_nick AND PWD = L_pwd
+               SELECT * FROM usuarios WHERE username = L_nick AND pwd = L_pwd
            )
            THEN 1
            ELSE 0
@@ -37,7 +37,7 @@ BEGIN
                     
                     INTO L_nombres, L_apellidos, L_correo, L_tipo, L_doc
 
-                    FROM USUARIOS
+                    FROM usuarios
                     WHERE username = L_nick AND pwd = L_pwd;
 
     END IF;

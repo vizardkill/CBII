@@ -87,14 +87,14 @@ public class DAO_Usuario implements IUsuario {
         try (CallableStatement cst = con.prepareCall("{call LOGIN_USUARIO (?,?,?,?,?,?,?,?)}")) {
 
             cst.setString(1, user.getUsername());
-            cst.setString(2, user.getPk_documento());
+            cst.setString(2, user.getPwd());
 
-            cst.registerOutParameter(3, java.sql.Types.INTEGER);
+            cst.registerOutParameter(3, java.sql.Types.VARCHAR);
             cst.registerOutParameter(4, java.sql.Types.VARCHAR);
             cst.registerOutParameter(5, java.sql.Types.VARCHAR);
-            cst.registerOutParameter(6, java.sql.Types.VARCHAR);
+            cst.registerOutParameter(6, java.sql.Types.INTEGER);
             cst.registerOutParameter(7, java.sql.Types.VARCHAR);
-            cst.registerOutParameter(8, java.sql.Types.VARCHAR);
+            cst.registerOutParameter(8, java.sql.Types.INTEGER);
 
             cst.execute();
 
