@@ -7,7 +7,7 @@
         <div class="sidebar-content">
             <!--Logo-->
             <div class="sidebar-brand">
-                <a href=""> <img class=" img-fluid" src="../../img/web/Index/logo-white.png" alt=""></a>
+                <a href=""> <img class=" img-fluid" src="../../img/web/Index/logo-uni.png" alt=""></a>
                 <div id="close-sidebar">
                     <i class="fas fa-times"></i>
                 </div>

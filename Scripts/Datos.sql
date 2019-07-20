@@ -7,7 +7,6 @@ de Datos enmarcado dentro del área de desarrollo de software, es el siguiente c
 INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (1,'Abierta','La solicitud esta creada, los empleados no la han revisado.');
 INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (2,'Procesada','La solicitud esta siendo revisada por los empleados.');
 INSERT INTO TIPOS_ESTADOS_SOLICITUDES VALUES (3,'Terminada','La solicitud se ha completado, termino el proceso.');
-
 INSERT INTO CATEGORIAS_SOLICITUDES VALUES (1,'Casos Especiales',5,'Estudiantes que no posen ninguna materia matriculada en su linea academica');
 
 INSERT INTO SOLICITUD VALUES (1,1000,1,1,1,1,'SOLICITUD PARA PETICION GRADOS',

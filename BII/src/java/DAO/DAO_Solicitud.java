@@ -114,9 +114,9 @@ public class DAO_Solicitud implements ISolicitud {
         ResultSet rs;
         PreparedStatement ps;
 
-        String sql = 
-                  "SELECT * FROM v_Solicitudes_Usuarios ORDER BY fecha_creacion"
-                + "WHERE pk_documento = ?";
+        String sql =  "SELECT * FROM v_Solicitudes_Usuarios "
+                    + "WHERE Usuario_Solicitante = ? "
+                    + "ORDER BY fecha_creacion";
 
         List<Solicitud> lista_sol = new ArrayList<>();
 
@@ -126,12 +126,13 @@ public class DAO_Solicitud implements ISolicitud {
             ps = con.prepareStatement(sql);
             ps.setString(1, sol.getFk_usuario_solicitante()); 
   
-            rs = ps.executeQuery(sql);
+            rs = ps.executeQuery();
             while (rs.next()) {
                 Solicitud aux_sol = new Solicitud();
                 aux_sol.setPk_id(rs.getInt("Id"));
                 aux_sol.setFk_estado(rs.getString("Estado"));
                 aux_sol.setFk_categoria(rs.getString("Categoria"));
+                aux_sol.setTitulo(rs.getString("titulo"));
                 aux_sol.setFk_programa_academico(rs.getString("Programa_Academico"));
                 aux_sol.setDescripcion_problema(rs.getString("descripcion_problema"));
                 aux_sol.setDescripcion_peticion(rs.getString("descripcion_peticion"));

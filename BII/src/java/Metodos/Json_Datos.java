@@ -83,6 +83,7 @@ public class Json_Datos {
             item.addProperty("descripcion_problema", x.getDescripcion_problema());
             item.addProperty("descripcion_peticion", x.getDescripcion_peticion());
             item.addProperty("descripcion_solucion", x.getDescripcion_solucion());
+            item.addProperty("fecha_creacion", x.getFecha_creacion());
             array.add(item);
         }
         json.add("v_Solicitudes_Usuarios", array);

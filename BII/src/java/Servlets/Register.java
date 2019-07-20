@@ -144,20 +144,17 @@ public class Register extends HttpServlet {
         if (Peticion.equals("Registro_Solicitud")) {
             Calendario fechaR = new Calendario();
             String fecha_registro = fechaR.Fecha_Registro();
-            Solicitud sol = new Solicitud(
-                    0,
-                    String.valueOf(session.getAttribute("documento_usuario")),
-                    null,
-                    request.getParameter("form_reg_sol_fk_estado"),
-                    request.getParameter("form_reg_sol_fk_categoria"),
-                    request.getParameter("form_reg_sol_fk_programa_academico"),
-                    request.getParameter("form_reg_sol_titulo"),
-                    request.getParameter("form_reg_sol_descripcion_problema"),
-                    request.getParameter("form_reg_sol_descripcion_peticion"),
-                    null,
-                    fecha_registro,
-                    null               
-            );
+            Solicitud sol = new Solicitud();
+            
+            sol.setFk_usuario_solicitante(String.valueOf(session.getAttribute("documento_usuario")));
+            sol.setFk_estado(request.getParameter("form_reg_sol_fk_estado"));
+            sol.setFk_categoria(request.getParameter("form_reg_sol_fk_categoria"));
+            sol.setFk_programa_academico(request.getParameter("form_reg_sol_fk_programa_academico"));
+            sol.setTitulo(request.getParameter("form_reg_sol_titulo"));
+            sol.setDescripcion_problema(request.getParameter("form_reg_sol_descripcion_problema"));
+            sol.setDescripcion_peticion(request.getParameter("form_reg_sol_descripcion_peticion"));
+            sol.setFecha_creacion(fecha_registro);
+            
             controller_Solicitud csol = new controller_Solicitud();
             
             boolean result = csol.setSolicitud(sol);
@@ -166,6 +163,40 @@ public class Register extends HttpServlet {
             } else {
                 response.getWriter().write("false");
             }
+        }
+        
+        if (Peticion.equals("Eliminar_Solicitud")) {
+            Solicitud sol = new Solicitud();
+            sol.setPk_id(Integer.valueOf(request.getParameter("form_elim_pk_id")));
+            controller_Solicitud csol = new controller_Solicitud();
+            
+            boolean result = csol.deleteSolicitud(sol);
+            if (result) {
+                response.getWriter().write("true");
+            } else {
+                response.getWriter().write("false");
+            }   
+        }
+        
+        if (Peticion.equals("Editar_Solicitud")) {
+            Solicitud sol = new Solicitud();
+            
+            sol.setPk_id(Integer.valueOf(request.getParameter("form_edit_sol_pk_id")));
+            sol.setFk_categoria(request.getParameter("form_edit_sol_fk_categoria"));
+            sol.setFk_programa_academico(request.getParameter("form_edit_sol_fk_programa_academico"));
+            sol.setTitulo(request.getParameter("form_edit_sol_titulo"));
+            sol.setDescripcion_problema(request.getParameter("form_edit_sol_descripcion_problema"));
+            sol.setDescripcion_peticion(request.getParameter("form_edit_sol_descripcion_peticion"));
+            
+            controller_Solicitud csol = new controller_Solicitud();
+            
+            boolean result = csol.updateSolicitud(sol);
+            if (result) {
+                response.getWriter().write("true");
+            } else {
+                response.getWriter().write("false");
+            }   
+            
         }
 
     }
